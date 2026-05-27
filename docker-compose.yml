@@ -1,11 +1,10 @@
 version: '3.8'
 
 services:
-  crypto-prices:
+  crypto-web:
     build: .
-    volumes:
-      - ./output:/app/output
+    ports:
+      - "5000:5000"
     environment:
       - PYTHONUNBUFFERED=1
-    # Переопределить команду для сохранения результата
-    command: python main.py --output /app/output/prices.json
+    restart: unless-stopped
