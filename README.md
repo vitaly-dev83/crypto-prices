@@ -2,7 +2,7 @@
 
 Веб-приложение для отображения актуальных курсов криптовалют в реальном времени. Данные запрашиваются с публичного API CoinGecko и отображаются в адаптивном веб-интерфейсе. Приложение контейнеризировано в Docker.
 
-![Crypto Prices Screenshot](screenshot.png)
+![Crypto Price Dashboard](screenshot.png)
 
 ## 🚀 Возможности
 
@@ -25,4 +25,4 @@
 
 ```bash
 pip install -r requirements.txt
-python -m app.main
+python app.py
