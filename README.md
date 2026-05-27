@@ -1,25 +1,28 @@
-# Crypto Currency Price Fetcher
+# 🪙 Crypto Price Dashboard
 
-Fetch current cryptocurrency prices from CoinGecko API.
+Веб-приложение для отображения актуальных курсов криптовалют в реальном времени. Данные запрашиваются с публичного API CoinGecko и отображаются в адаптивном веб-интерфейсе. Приложение контейнеризировано в Docker.
 
-## Features
+![Crypto Prices Screenshot](screenshot.png)
 
-- Fetch prices for any cryptocurrency (Bitcoin, Ethereum, Dogecoin, etc.)
-- Save results to JSON file
-- Console output with formatted table
-- Docker support
-- Command line arguments for flexibility
+## 🚀 Возможности
 
-## Requirements
+- Получение актуальных курсов криптовалют (Bitcoin, Ethereum, Dogecoin)
+- Адаптивный веб-интерфейс с поддержкой мобильных устройств
+- Автоматическое обновление данных при перезагрузке страницы
+- Контейнеризация Docker для простого развёртывания
+- Обработка ошибок API (нет соединения, некорректный ответ)
 
-- Python 3.11+
-- Docker (optional)
+## 🛠️ Стек технологий
 
-## Installation
+- **Backend:** Python 3.11, Flask
+- **Frontend:** HTML5, CSS3 (Flexbox, Grid, адаптивная вёрстка)
+- **API:** CoinGecko (публичный, без ключа)
+- **Контейнеризация:** Docker, Docker Compose
 
-### Local
+## 📦 Установка и запуск
+
+### Локально (без Docker)
 
 ```bash
-git clone https://github.com/yourusername/crypto-prices.git
-cd crypto-prices
 pip install -r requirements.txt
+python -m app.main
