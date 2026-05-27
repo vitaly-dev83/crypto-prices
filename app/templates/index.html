@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Prices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Crypto Currency Prices</h1>
+            <p class="subtitle">Live data from CoinGecko API</p>
+        </header>
+
+        <main>
+            {% if prices %}
+            <div class="card-grid">
+                {% for item in prices %}
+                <div class="card">
+                    <div class="card-header">
+                        <span class="coin-name">{{ item.coin }}</span>
+                        <span class="coin-symbol">{{ item.symbol }}</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="price">
+                            {% if item.price != 'N/A' %}
+                                ${{ '{:,.2f}'.format(item.price) }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="updated">Updated: {{ item.last_updated }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="error">
+                <p>❌ Failed to fetch data from API. Please try again later.</p>
+            </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>Last refresh: {{ last_refresh }}</p>
+            <button class="refresh-btn" onclick="location.reload()">🔄 Refresh</button>
+        </footer>
+    </div>
+</body>
+</html>
